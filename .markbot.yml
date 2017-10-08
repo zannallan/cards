@@ -1,0 +1,67 @@
+repo: 'cards'
+canvasCourse: 'web-dev-1'
+
+inherit:
+  - naming-restrict-live
+  - git-2
+  - html
+  - css
+  - box-sizing
+
+html:
+  - path: 'index.html'
+    outline: false
+    has:
+      - 'ul.cards > li > img + strong + dl > dt + dd > time[datetime]'
+      - 'ul.cards > li > div > a'
+      - 'ul.cards > li:nth-child(2)'
+      - 'time[datetime="1977-09-05"]'
+      - 'time[datetime="2006-01-19"]'
+      - 'a[href="https://en.wikipedia.org/wiki/Voyager_1"]'
+      - 'a[href="https://en.wikipedia.org/wiki/New_Horizons"]'
+      - 'img[src="http://placehold.it/32x32"]'
+    search:
+      - 'Cards'
+      - 'Voyager 1'
+      - 'Launched\:'
+      - 'Sept\. 5\, 1977'
+      - 'Destination\:'
+      - 'Jupiter & beyond'
+      - 'Wikipedia'
+      - 'New Horizons'
+      - 'Jan\. 19\, 2006'
+      - 'Pluto'
+
+css:
+  - path: 'css/main.css'
+    has:
+      - ['html', 'font-family', 'Georgia, serif']
+      - ['html', 'line-height', '1.5']
+      - ['.cards', 'list-style-type', 'none']
+      - ['.cards', 'text-align', 'center']
+      - ['.cards li', 'display', 'inline-block']
+      - ['.cards li', 'background-color', '#fff']
+      - ['.cards li', 'border', '3px solid #e2e2e2']
+      - ['.cards li', 'border-radius', '10px']
+      - ['.cards strong']
+      - ['.cards dl']
+      - ['.cards dt']
+      - ['.cards div']
+      - ['.cards a']
+      - ['.cards a:hover']
+
+screenshots:
+  - path: 'index.html'
+    sizes: [320, 960]
+
+functionality:
+  - path: 'index.html'
+    tests:
+      - |
+        let link = $('.cards a');
+        let oldBg = css(link).backgroundColor;
+
+        hover(link, function () {
+          if (css(link).backgroundColor == oldBg) return fail('The background colour of the links don’t change when hovered');
+          pass();
+        });
