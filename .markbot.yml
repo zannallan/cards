@@ -19,7 +19,7 @@ html:
       - 'time[datetime="2006-01-19"]'
       - 'a[href="https://en.wikipedia.org/wiki/Voyager_1"]'
       - 'a[href="https://en.wikipedia.org/wiki/New_Horizons"]'
-      - 'img[src="http://placehold.it/32x32"]'
+      - 'img[src="https://placehold.it/32x32"]'
     search:
       - 'Cards'
       - 'Voyager 1'
